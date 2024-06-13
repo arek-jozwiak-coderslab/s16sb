@@ -3,6 +3,7 @@ package pl.coderslab;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,6 +17,7 @@ import javax.validation.Valid;
 @Controller
 @RequestMapping("drink")
 @Slf4j
+@Secured("ROLE_DRINKER")
 public class DrinkController {
     private final DrinkRepository drinkRepository;
 
