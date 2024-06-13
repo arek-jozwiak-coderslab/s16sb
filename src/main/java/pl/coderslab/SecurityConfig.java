@@ -21,9 +21,14 @@ public class SecurityConfig {
 
 
 
+
+    /**
+     * @TODO - change antMatchers after development
+     */
     @Bean
     protected SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
+                .antMatchers("/drink/**").permitAll()
                 .antMatchers("/admin/**").hasAnyRole("USER","ADMIN")
                 .and().formLogin().loginPage("/login")
                 .and().logout().logoutSuccessUrl("/")
